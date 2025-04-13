@@ -1,7 +1,9 @@
 import React from 'react';
+import AnimatedDiv from '../AnimatedDiv';
 
 const ProductShowcase = () => {
   return (
+    <AnimatedDiv>
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-white">
       {/* Playstation 5 */}
       <div className="col-span-2 flex items-center bg-gray-100 p-6 rounded-lg">
@@ -17,25 +19,26 @@ const ProductShowcase = () => {
           </p>
         </div>
       </div>
-{/* Macbook Air */}
-<div className="col-span-2 flex items-center bg-gray-50 p-6 rounded-lg justify-between">
-  <div className="mr-6">
-    <h2 className="text-3xl font-light">
-      Macbook <span className="font-bold">Air</span>
-    </h2>
-    <p className="text-sm text-gray-600 mt-2">
-      The new 15-inch MacBook Air makes room for more of what you love with a spacious Liquid Retina display.
-    </p>
-    <button className="mt-4 px-4 py-2 border border-black rounded hover:bg-black hover:text-white transition">
-      Shop Now
-    </button>
-  </div>
-  <img
-    src="https://i.imgur.com/NT95wDa.png"
-    alt="Macbook Air"
-    className="w-2/3 max-h-[300px] object-contain"
-  />
-</div>
+
+      {/* Macbook Air */}
+      <div className="col-span-2 flex items-center bg-gray-50 p-6 rounded-lg justify-between">
+        <div className="mr-6">
+          <h2 className="text-3xl font-light">
+            Macbook <span className="font-bold">Air</span>
+          </h2>
+          <p className="text-sm text-gray-600 mt-2">
+            The new 15-inch MacBook Air makes room for more of what you love with a spacious Liquid Retina display.
+          </p>
+          <button className="mt-4 px-4 py-2 border border-black rounded hover:bg-black hover:text-white transition">
+            Shop Now
+          </button>
+        </div>
+        <img
+          src="https://i.imgur.com/NT95wDa.png"
+          alt="Macbook Air"
+          className="w-2/3 max-h-[300px] object-contain"
+        />
+      </div>
 
       {/* AirPods Max */}
       <div className="flex items-center bg-white p-6 rounded-lg">
@@ -71,6 +74,7 @@ const ProductShowcase = () => {
         </div>
       </div>
     </div>
+    </AnimatedDiv>
   );
 };
 

@@ -9,27 +9,31 @@ import BigSummerSale from './components/SummerSale';
 import Footer from './components/Footer';
 import ProductCards from './components/ProductPage';
 import ProductDetailPage from './components/ProductDetailPage';
+import Basket from './components/Basket'; 
+import { BasketProvider } from './BasketContext'; 
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={
-          <>
-            <HeroSection />
-            <ProductShowcase />
-            <CategoryBrowser />
-            <ProductCards />
-            <ProductDiscount />
-            <BigSummerSale />
-            
-          </>
-        }/>
-            <Route path="/product/:id" element={< ProductDetailPage/>} />
-      </Routes>
-      <Footer />
-    </Router>
+    <BasketProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <HeroSection />
+              <ProductShowcase />
+              <CategoryBrowser />
+              <ProductCards />
+              <ProductDiscount />
+              <BigSummerSale />
+            </>
+          }/>
+          <Route path="/product/:id" element={<ProductDetailPage />} />
+          <Route path="/basket" element={<Basket />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </BasketProvider>
   );
 }
 

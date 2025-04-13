@@ -1,9 +1,11 @@
 import React from "react";
+import AnimatedDiv from "../AnimatedDiv";
 
 const BigSummerSale = () => {
   return (
+    <AnimatedDiv>
     <div className="w-full relative min-h-[200px] sm:min-h-[300px] md:min-h-[500px]">
-      {/* Фоновое изображение */}
+      {/* Background image */}
       <img
         src="https://i.imgur.com/o2Q5pY8.png"
         alt="Background"
@@ -12,7 +14,7 @@ const BigSummerSale = () => {
 
       <div className="absolute inset-0 bg-black/40" />
 
-      {/* Контент */}
+      {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center text-center text-white px-4 py-6 h-full">
         <h1 className="text-2xl sm:text-4xl md:text-5xl mt-20 font-light drop-shadow">
           Big Summer <span className="font-bold">Sale</span>
@@ -25,6 +27,7 @@ const BigSummerSale = () => {
         </button>
       </div>
     </div>
+    </AnimatedDiv>
   );
 };
 

@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import AnimatedDiv from '../AnimatedDiv';
 
 function ProductDetailPage() {
   const { id } = useParams();
@@ -15,7 +16,7 @@ function ProductDetailPage() {
         const response = await axios.get(`http://localhost:3001/api/product/${id}`);
         setProduct(response.data);
       } catch (error) {
-        setError('Ошибка при загрузке товара');
+        setError('Error loading product');
       } finally {
         setLoading(false);
       }
@@ -24,11 +25,12 @@ function ProductDetailPage() {
     fetchProductDetail();
   }, [id]);
 
-  if (loading) return <div className="text-center p-10">Загрузка...</div>;
+  if (loading) return <div className="text-center p-10">Loading...</div>;
   if (error) return <div className="text-center text-red-500 p-10">{error}</div>;
   if (!product) return null;
 
   return (
+    <AnimatedDiv>
     <div className="max-w-[80%] mx-auto py-10 flex flex-col lg:flex-row gap-10">
       {/* Images */}
       <div className="lg:w-1/2 flex flex-col items-center gap-6">
@@ -48,6 +50,10 @@ function ProductDetailPage() {
         <div className="flex items-center gap-4">
           <span className="text-3xl font-bold text-black">${product.price}</span>
           <span className="text-lg line-through text-gray-400">${product.price + 100}</span>
+        </div>
+
+        <div className="text-gray-600 mt-4">
+          <p>{product.description}</p>
         </div>
 
         <div>
@@ -93,11 +99,6 @@ function ProductDetailPage() {
           </div>
         </div>
 
-        <p className="text-gray-600 mt-4">
-          Enhanced capabilities thanks to an enlarged display of 6.7 inches and work without recharging throughout the day.
-          Incredible photos in weak, yearn in bright light using the new system with two cameras...
-        </p>
-
         <div className="flex items-center gap-4 mt-6">
           <button className="px-6 py-3 border rounded-md">Add to Wishlist</button>
           <button className="px-6 py-3 bg-black text-white rounded-md hover:bg-gray-900">Add to Cart</button>
@@ -106,19 +107,20 @@ function ProductDetailPage() {
         <div className="grid grid-cols-3 text-center mt-6 gap-2 text-sm text-gray-700">
           <div>
             <p className="font-semibold">Free Delivery</p>
-            <p>1–2 day</p>
+            <p>1–2 days</p>
           </div>
           <div>
             <p className="font-semibold">In Stock</p>
             <p>Today</p>
           </div>
           <div>
-            <p className="font-semibold">Guaranteed</p>
+            <p className="font-semibold">Warranty</p>
             <p>1 year</p>
           </div>
         </div>
       </div>
     </div>
+    </AnimatedDiv>
   );
 }
 

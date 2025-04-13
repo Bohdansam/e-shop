@@ -1,7 +1,9 @@
 import React from "react";
+import AnimatedDiv from "../AnimatedDiv";
 
 const Footer = () => {
   return (
+    <AnimatedDiv>
     <footer className="bg-black text-white py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Top section */}
@@ -46,6 +48,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+    </AnimatedDiv>
   );
 };
 

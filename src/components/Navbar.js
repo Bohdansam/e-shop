@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom"; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
@@ -17,7 +17,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-4">
         {/* Logo */}
-        <img src="https://i.imgur.com/c2GLYEG.png"></img>
+        <img src="https://i.imgur.com/c2GLYEG.png" alt="Logo" />
 
         {/* Search */}
         <div className="hidden md:flex flex-1 justify-center mx-6">
@@ -39,9 +39,12 @@ const Navbar = () => {
           <button aria-label="Favorites">
             <img src="https://i.imgur.com/5AdMrQj.png" alt="Favorites" className="w-5 h-5" />
           </button>
-          <button aria-label="Cart">
+
+          {/* Cart Icon as Link */}
+          <Link to="/basket" aria-label="Cart">
             <img src="https://i.imgur.com/IxyjfBx.png" alt="Cart" className="w-5 h-5" />
-          </button>
+          </Link>
+
           <button aria-label="Profile">
             <img src="https://i.imgur.com/i01fyfP.png" alt="Profile" className="w-5 h-5" />
           </button>
@@ -80,7 +83,10 @@ const Navbar = () => {
           {/* Mobile Icons */}
           <div className="flex space-x-6 pt-4">
             <img src="https://i.imgur.com/5AdMrQj.png" alt="Favorites" className="w-6 h-6" />
-            <img src="https://i.imgur.com/IxyjfBx.png" alt="Cart" className="w-6 h-6" />
+            {/* Cart icon as link in mobile too */}
+            <Link to="/basket" onClick={() => setIsOpen(false)}>
+              <img src="https://i.imgur.com/IxyjfBx.png" alt="Cart" className="w-6 h-6" />
+            </Link>
             <img src="https://i.imgur.com/i01fyfP.png" alt="Profile" className="w-6 h-6" />
           </div>
         </div>

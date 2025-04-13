@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AnimatedDiv from "../AnimatedDiv";
 
 const ProductDiscount = () => {
   const [products, setProducts] = useState([]);
@@ -20,7 +21,7 @@ const ProductDiscount = () => {
           .filter((item) => [4, 5, 7, 1].includes(item.id));
         setProducts(filtered);
       } catch (err) {
-        setError("Ошибка загрузки");
+        setError("Loading error");
       }
     };
 
@@ -34,6 +35,7 @@ const ProductDiscount = () => {
   if (error) return <p className="text-center text-red-500">{error}</p>;
 
   return (
+    <AnimatedDiv> 
     <div className="flex flex-col items-center justify-center w-full py-16 px-4 sm:px-8 lg:px-16">
       <h1 className="text-2xl font-bold w-full text-left mb-8 sm:pl-0 lg:pl-16">
         Discounts up to -50%
@@ -67,6 +69,7 @@ const ProductDiscount = () => {
         </div>
       )}
     </div>
+    </AnimatedDiv>
   );
 };
 

@@ -1,10 +1,14 @@
 import React from "react";
+import AnimatedDiv from "../AnimatedDiv";
 
 const HeroSection = () => {
   return (
+    <AnimatedDiv>
+
+    
     <section className="bg-[#211C24] text-white h-[650px] px-6 flex items-end pt-6">
       <div className="max-w-6xl w-full mx-auto grid md:grid-cols-2 gap-12">
-        {/* Левая часть — текст */}
+        {/* Left Section */}
         <div className="flex flex-col justify-center text-center md:text-left h-full">
           <h4 className="text-gray-400 text-lg font-semibold mb-2">Pro.Beyond.</h4>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-light">
@@ -18,7 +22,7 @@ const HeroSection = () => {
           </button>
         </div>
 
-        {/* Правая часть — изображение */}
+        {/* Right Section */}
         <div className="relative h-full flex justify-center md:justify-end items-end">
           <img
             src="https://i.imgur.com/lBFopal.png"
@@ -28,6 +32,7 @@ const HeroSection = () => {
         </div>
       </div>
     </section>
+    </AnimatedDiv>
   );
 };
 

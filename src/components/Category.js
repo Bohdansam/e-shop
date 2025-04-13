@@ -1,4 +1,5 @@
 import React from "react";
+import AnimatedDiv from "../AnimatedDiv";
 
 const categories = [
   { name: "Phones", img: "https://i.imgur.com/WJdzIgv.png" },
@@ -11,6 +12,7 @@ const categories = [
 
 const CategoryBrowser = () => {
   return (
+    <AnimatedDiv>
     <div className="p-6 bg-white border border-black">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold">Browse By Category</h2>
@@ -37,6 +39,7 @@ const CategoryBrowser = () => {
         ))}
       </div>
     </div>
+    </AnimatedDiv>
   );
 };
 
