@@ -30,10 +30,10 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6 text-sm text-gray-600">
-          <a href="#" className="font-semibold text-black">Home</a>
-          <a href="#">About</a>
-          <a href="#">Contact Us</a>
-          <a href="#">Blog</a>
+          <Link to="/" className="font-semibold text-black">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link to="/blog">Blog</Link>
 
           {/* Icons */}
           <button aria-label="Favorites">
@@ -75,10 +75,10 @@ const Navbar = () => {
 
         {/* Mobile Nav Items */}
         <div className="flex flex-col space-y-6 pt-20 text-lg text-gray-800">
-          <a href="#" className="hover:text-black">Home</a>
-          <a href="#" className="hover:text-black">About</a>
-          <a href="#" className="hover:text-black">Contact Us</a>
-          <a href="#" className="hover:text-black">Blog</a>
+          <Link to="/" className="hover:text-black">Home</Link>
+          <Link to="/about" className="hover:text-black">About</Link>
+          <Link to="/contact" className="hover:text-black">Contact Us</Link>
+          <Link to="/blog" className="hover:text-black">Blog</Link>
 
           {/* Mobile Icons */}
           <div className="flex space-x-6 pt-4">
