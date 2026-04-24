@@ -1,81 +1,113 @@
-import React from 'react';
-import AnimatedDiv from '../AnimatedDiv';
+"use client";
 
-const ProductShowcase = () => {
+import React from "react";
+import { motion } from "framer-motion";
+
+const videos = {
+  long: [
+    {
+      title: "YouTube Documentary",
+      url: "https://www.youtube.com/embed/PwRO0MEMcVs",
+    },
+    {
+      title: "Client Brand Story",
+      url: "https://www.youtube.com/embed/dA7S9J5khtw",
+    },
+  ],
+  short: [
+    {
+      title: "Instagram Reel",
+      url: "https://www.youtube.com/embed/VIDEO_ID_3",
+    },
+    {
+      title: "TikTok Ad",
+      url: "https://www.youtube.com/embed/VIDEO_ID_4",
+    },
+  ],
+};
+
+const VideoCard = ({ video }) => {
   return (
-    <AnimatedDiv>
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-white">
-      {/* Playstation 5 */}
-      <div className="col-span-2 flex items-center bg-gray-100 p-6 rounded-lg">
-        <img
-          src="https://i.imgur.com/cjdxIZN.png"
-          alt="Playstation 5"
-          className="w-1/2 max-h-48 object-contain"
-        />
-        <div className="ml-6">
-          <h2 className="text-2xl font-semibold">Playstation 5</h2>
-          <p className="text-sm text-gray-600 mt-2">
-            Incredibly powerful CPUs, GPUs, and an SSD with integrated I/O will redefine your PlayStation experience.
-          </p>
-        </div>
-      </div>
-
-      {/* Macbook Air */}
-      <div className="col-span-2 flex items-center bg-gray-50 p-6 rounded-lg justify-between">
-        <div className="mr-6">
-          <h2 className="text-3xl font-light">
-            Macbook <span className="font-bold">Air</span>
-          </h2>
-          <p className="text-sm text-gray-600 mt-2">
-            The new 15-inch MacBook Air makes room for more of what you love with a spacious Liquid Retina display.
-          </p>
-          <button className="mt-4 px-4 py-2 border border-black rounded hover:bg-black hover:text-white transition">
-            Shop Now
-          </button>
-        </div>
-        <img
-          src="https://i.imgur.com/NT95wDa.png"
-          alt="Macbook Air"
-          className="w-2/3 max-h-[300px] object-contain"
+    <motion.div
+      className="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-lg"
+      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="aspect-video w-full">
+        <iframe
+          src={video.url}
+          title={video.title}
+          className="w-full h-full"
+          allowFullScreen
         />
       </div>
 
-      {/* AirPods Max */}
-      <div className="flex items-center bg-white p-6 rounded-lg">
-        <img
-          src="https://i.imgur.com/MktG16p.png"
-          alt="AirPods Max"
-          className="w-1/2 max-h-32 object-contain"
-        />
-        <div className="ml-4">
-          <h3 className="text-lg font-semibold">
-            Apple AirPods <span className="font-bold">Max</span>
-          </h3>
-          <p className="text-sm text-gray-600 mt-1">
-            Computational audio. Listen, it's powerful
-          </p>
-        </div>
+      <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition">
+        <p className="text-base md:text-lg font-medium tracking-wide text-white">
+          {video.title}
+        </p>
       </div>
-
-      {/* Apple Vision Pro */}
-      <div className="flex items-center bg-black text-white p-6 rounded-lg">
-        <img
-          src="https://i.imgur.com/oVJwgcW.png"
-          alt="Apple Vision Pro"
-          className="w-1/2 max-h-32 object-contain"
-        />
-        <div className="ml-4">
-          <h3 className="text-lg font-semibold">
-            Apple <span className="font-bold">Vision Pro</span>
-          </h3>
-          <p className="text-sm mt-1">
-            An immersive way to experience entertainment
-          </p>
-        </div>
-      </div>
-    </div>
-    </AnimatedDiv>
+    </motion.div>
   );
 };
 
-export default ProductShowcase;
+const PortfolioSection = () => {
+  return (
+    <section
+      id="portfolio"
+      className="relative px-6 py-28 text-white font-montserrat"
+    >
+
+      <div className="max-w-6xl mx-auto">
+
+        {/* HEADER */}
+        <div className="mb-20">
+          <p className="text-white/40 text-xs uppercase tracking-[0.3em] mb-3">
+            Portfolio
+          </p>
+
+          <h2 className="text-4xl md:text-6xl font-semibold tracking-[-1px] leading-tight">
+            Selected{" "}
+            <span className="bg-gradient-to-r from-purple-400 to-purple-600 text-transparent bg-clip-text">
+              Work
+            </span>
+          </h2>
+
+          <p className="mt-4 text-white/50 max-w-md text-sm md:text-base leading-relaxed">
+            A collection of cinematic edits crafted to hold attention, tell
+            stories, and convert viewers into engagement.
+          </p>
+        </div>
+
+        {/* LONG FORM */}
+        <div className="mb-24">
+          <h3 className="text-2xl md:text-3xl font-medium mb-8">
+            Long Form Videos
+          </h3>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {videos.long.map((video, index) => (
+              <VideoCard key={index} video={video} />
+            ))}
+          </div>
+        </div>
+
+        {/* SHORT FORM */}
+        <div>
+          <h3 className="text-2xl md:text-3xl font-medium mb-8">
+            Short Form Videos
+          </h3>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {videos.short.map((video, index) => (
+              <VideoCard key={index} video={video} />
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default PortfolioSection;
