@@ -5,23 +5,27 @@ import { motion } from "framer-motion";
 
 const videos = {
   long: [
-    {
-      title: "YouTube Documentary",
-      url: "https://www.youtube.com/embed/PwRO0MEMcVs",
-    },
-    {
-      title: "Client Brand Story",
-      url: "https://www.youtube.com/embed/dA7S9J5khtw",
-    },
-  ],
+  {
+    title: "YouTube Documentary",
+    url: "https://www.youtube.com/embed/PwRO0MEMcVs",
+  },
+  {
+    title: "Client Brand Story",
+    url: "https://www.youtube.com/embed/y6bU6ourpp4",
+  },
+  {
+    title: "Full Case Study",
+    url: "https://www.youtube.com/embed/0l7ws2GfcMg",
+  },
+],
   short: [
     {
-      title: "Instagram Reel",
-      url: "https://www.youtube.com/embed/VIDEO_ID_3",
+      title: "Daniel Bitton Shorts",
+      url: "https://www.youtube.com/embed//BztC8i8kY8o?feature=share",
     },
     {
-      title: "TikTok Ad",
-      url: "https://www.youtube.com/embed/VIDEO_ID_4",
+      title: "Nathan Shorts",
+      url: "https://www.youtube.com/embed/PnfZfBbcjX8?feature=share",
     },
   ],
 };
@@ -80,17 +84,24 @@ const PortfolioSection = () => {
         </div>
 
         {/* LONG FORM */}
-        <div className="mb-24">
-          <h3 className="text-2xl md:text-3xl font-medium mb-8">
-            Long Form Videos
-          </h3>
+       {/* LONG FORM */}
+<div className="mb-24">
+  <h3 className="text-2xl md:text-3xl font-medium mb-8">
+    Long Form Videos
+  </h3>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {videos.long.map((video, index) => (
-              <VideoCard key={index} video={video} />
-            ))}
-          </div>
-        </div>
+  {/* первые 2 */}
+  <div className="grid md:grid-cols-2 gap-8 mb-8">
+    {videos.long.slice(0, 2).map((video, index) => (
+      <VideoCard key={index} video={video} />
+    ))}
+  </div>
+
+  {/* третье — на всю ширину */}
+  <div className="max-w-3xl mx-auto">
+    <VideoCard video={videos.long[2]} />
+  </div>
+</div>
 
         {/* SHORT FORM */}
         <div>
